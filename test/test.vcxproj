@@ -164,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix-test.cpp" />
+    <ClCompile Include="quaterion-test.cpp" />
     <ClCompile Include="rtest.cpp" />
     <ClCompile Include="vector-test.cpp" />
   </ItemGroup>

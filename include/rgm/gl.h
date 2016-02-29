@@ -28,12 +28,24 @@
 #include "vector.h"
 #include "matrix.h"
 #include "quaternion.h"
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include <cmath>
-
-#define PI 3.1415926535897932384626433832795f
 
 namespace rgm
 {
+    template <typename T>
+    T radians(T degrees) 
+    {
+        return degrees * ((T)M_PI / (T)180.0);
+    };
+
+    template <typename T>
+    T degrees(T radians) 
+    {
+        return radians * ((T)180.0 / (T)M_PI);
+    };
+
     template <typename T>
     matrix4<T> frustum(T left, T right, T bottom, T top, T znear, T zfar)
     {
@@ -99,7 +111,7 @@ namespace rgm
     template <typename T>
     matrix<T, 4> rotate(const matrix<T, 4>& m, const vector<T, 3>& v, T angle)
     {
-        T a = angle * PI / 360.0f;
+        T a = radians(angle);
         T c = std::cos(a);
         T s = std::sin(a);
         
@@ -181,13 +193,24 @@ namespace rgm
     template <typename T>
     quaterion<T> axis_angle(const vector<T, 3>& axis, T angle)
     {
-        vector<T, 3> axis_n    = normalize(axis);
+        /*vector<T, 3> axis_n    = normalize(axis);
         T            angle_rad = angle * PI / 180.0;
 
         T            wr = std::cos(angle_rad / static_cast<T>(2.0));
         vector<T, 3> vr = axis_n * std::sin(angle_rad / static_cast<T>(2.0));
 
-        return quaterion<T>(vr, wr);
+        return quaterion<T>(vr, wr);*/
+
+        vector<T, 3> an    = normalize(axis);
+
+        T sin_a = std::sin(radians(angle/(T)2.0));
+        T cos_a = std::cos(radians(angle/(T)2.0));
+
+        T x = an[0] * sin_a;
+        T y = an[1] * sin_a;
+        T z = an[2] * sin_a;
+        T w = cos_a;
+        return quaterion<T>(x, y, z, w);
     }
 
     template <typename T>

@@ -3,6 +3,7 @@
 #define _RGM_QUATERNION_H_
 
 #include "vector.h"
+#include "matrix.h"
 
 namespace rgm
 {
@@ -72,6 +73,33 @@ namespace rgm
     quaterion<T> inverse(const quaterion<T>& q)
     {
         return conjugate(q);
+    }
+
+    template <typename T>
+    matrix<T, 4> quat2mat4(const quaterion<T>& q)
+    {
+        T xx = q[0] * q[0];
+        T xy = q[0] * q[1];
+        T xz = q[0] * q[2];
+        T xw = q[0] * q[3];
+        T yy = q[1] * q[1];
+        T yz = q[1] * q[2];
+        T yw = q[1] * q[3];
+        T zz = q[2] * q[2];
+        T zw = q[2] * q[3];
+
+        matrix<T, 4> mat = matrix<T, 4>(1);
+        mat[0][0] = 1 - 2 * (yy + zz);
+        mat[1][0] = 2 * (xy - zw);
+        mat[2][0] = 2 * (xz + yw);
+        mat[0][1] = 2 * (xy + zw);
+        mat[1][1] = 1 - 2 * (xx + zz);
+        mat[2][1] = 2 * (yz - xw);
+        mat[0][2] = 2 * (xz - yw);
+        mat[1][2] = 2 * (yz + xw);
+        mat[2][2] = 1 - 2 * (xx + yy);
+        
+        return mat;        
     }
 
     typedef quaterion<float>  quat;
