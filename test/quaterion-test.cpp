@@ -39,9 +39,9 @@ SUITE(quat)
 
     TEST(transform) 
     {
-        rgm::quat q = rgm::axis_angle<float>(rgm::vec3(0, 0, 1), 45.0f);
+        rgm::quat q = rgm::axis_angle<float>(rgm::vec3(0, 0, 1), 20.0f);
         rgm::mat4 m = rgm::mat4(1);
-        m = rgm::rotate<float>(m, rgm::vec3(0, 0, 1), 45.0f);
+        m = rgm::rotate<float>(m, rgm::vec3(0, 0, 1), 20.0f);
 
         rgm::vec3 src(1, 1, 1);
         rgm::vec3 v1 = rgm::transform(m, src);

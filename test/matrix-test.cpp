@@ -50,4 +50,11 @@ SUITE(matrix)
         CHECK_EQUAL(rgm::vec4(3, 7, 11, 15), (rgm::vec4)m[2]);
         CHECK_EQUAL(rgm::vec4(4, 8, 12, 16), (rgm::vec4)m[3]);
     }
+
+    TEST(identity_inverse_is_neutral)
+    {
+        rgm::mat4 m(1);
+        rgm::mat4 r = rgm::inv(m);
+        CHECK_EQUAL(m, r);
+    }
 }
