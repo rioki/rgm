@@ -2,7 +2,11 @@
 Rioki's Game Math Library
 =========================
 
-
+Simple and usable implementation of 
+* vector algebra
+* linear algebra
+* quaternions
+* 3d transofmations
 
 License
 -------
