@@ -1,7 +1,7 @@
 /*
     rgm - Rioki's Graphic Math Library
 
-    Copyright (c) 2014-2015 Sean "rioki" Farrell
+    Copyright (c) 2014-2017 Sean "rioki" Farrell
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
