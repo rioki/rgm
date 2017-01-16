@@ -1,7 +1,7 @@
 /*
     rgm - Rioki's Graphic Math Library
 
-    Copyright (c) 2014-2017 Sean "rioki" Farrell
+    Copyright (c) 2014-2015 Sean "rioki" Farrell
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -415,6 +415,19 @@ namespace rgm
         
         return r;
     }
+
+    template <typename T, unsigned int N>
+    T min(const vector<T, N>& v)
+    {
+        T r = v[0];
+
+        for (unsigned int i = 1; i < N; i++)
+        {                
+            r = std::min(v[i], r);
+        } 
+        
+        return r;
+    }
     
     template <typename T, unsigned int N>
     vector<T, N> max(const vector<T, N>& a, const vector<T, N>& b)
@@ -437,6 +450,19 @@ namespace rgm
         for (unsigned int i = 0; i < N; i++)
         {                
             r[i] = std::max(a[i], b);
+        } 
+        
+        return r;
+    }
+
+    template <typename T, unsigned int N>
+    T max(const vector<T, N>& v)
+    {
+        T r = v[0];
+
+        for (unsigned int i = 1; i < N; i++)
+        {                
+            r = std::max(v[i], r);
         } 
         
         return r;
