@@ -105,8 +105,11 @@ namespace rgm
     template <typename T>
     quaterion<T> quatfromvectors(vector<T, 3> u, vector<T, 3> v)
     {
-        vec3 w = cross(u, v);
-        quaterion<T> q = quaterion<T>(dot(u, v), w[0], w[1], w[2]);
+        vec3 qv = cross(u, v);
+        T    qw = std::sqrt(std::pow(length(u), 2) * std::pow(length(v), 2)) + dot(u, v);
+
+        quaterion<T> q(qv, qw);
+
         return normalize(q);
     }
 

@@ -59,4 +59,16 @@ SUITE(quat)
         rgm::mat4 qm = rgm::quat2mat4(q);
         CHECK(rgm::close(m, qm, 0.00001f));
     }
+
+    TEST(quat_from_vectors)
+    {
+        rgm::vec3 v1(1, 0, 0);
+        rgm::vec3 v2(0, 1, 0);
+
+        rgm::quat q = rgm::quatfromvectors(v1, v2);
+
+        rgm::vec3 vr = rgm::transform(q, v1);
+
+        CHECK(rgm::close(vr, v2, 0.00001f));
+    }
 }
