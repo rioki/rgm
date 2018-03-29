@@ -46,6 +46,9 @@ namespace rgm
         {
             return vector3<T>(data[0], data[1], data[2]);
         }
+
+    protected:
+        using vector<T, 4>::data;
     };
 
     template <typename T>

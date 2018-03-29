@@ -149,6 +149,9 @@ namespace rgm
         template <typename T2>
         explicit vector2(const vector<T2, 2>& v) 
         : vector<T, 2>(v) {} 
+
+    protected:
+        using vector<T, 2>::data;
     };
 
     template <typename T>
@@ -187,7 +190,10 @@ namespace rgm
 
         template <typename T2>
         explicit vector3(const vector<T2, 3>& v) 
-        : vector<T, 2>(v) {}
+        : vector<T, 3>(v) {}
+
+    protected:
+        using vector<T, 3>::data;
     };
 
     template <typename T>
@@ -230,6 +236,9 @@ namespace rgm
         template <typename T2>
         explicit vector4(const vector<T2, 4>& v) 
         : vector<T, 4>(v) {}
+
+    protected:
+        using vector<T, 4>::data;
     };
 
     template <typename T, unsigned int N>

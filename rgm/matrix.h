@@ -196,6 +196,9 @@ namespace rgm
 
         matrix2(const matrix<T, 2>& v)
         : matrix<T, 2>(v) {}
+
+    protected:
+        using matrix<T, 2>::data;
     };
 
     template <typename T>
@@ -252,7 +255,10 @@ namespace rgm
             data[6] = v[2][0];
             data[7] = v[2][1];
             data[8] = v[0][2];
-        }        
+        }  
+        
+    protected:
+        using matrix<T, 3>::data;
     };
 
     template <typename T>
@@ -310,6 +316,9 @@ namespace rgm
 
         matrix4(const matrix<T, 4>& v)
             : matrix<T, 4>(v) {}
+
+    protected:
+        using matrix<T, 4>::data;
     };
 
     template <typename T, unsigned int N>
