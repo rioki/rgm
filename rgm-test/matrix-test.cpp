@@ -57,4 +57,34 @@ SUITE(matrix)
         rgm::mat4 r = rgm::inv(m);
         CHECK_EQUAL(m, r);
     }
+
+    TEST(cast_m4_to_m3)
+    {
+        rgm::mat4 m4( 1,  2,  3,  4, 
+                      5,  6,  7,  8, 
+                      9, 10, 11, 12,
+                     13, 14, 15, 16);
+
+        rgm::mat3 ref(1,  2,  3,
+                      5,  6,  7,
+                      9, 10, 11);
+        
+        rgm::mat3 res = rgm::mat3(m4);
+
+        CHECK_EQUAL(ref, res);
+    }
+
+    TEST(cast_m3_to_m2)
+    {
+        rgm::mat3 m3(1, 2, 3, 
+                     4, 5, 6,
+                     7, 8, 9);
+
+        rgm::mat2 ref(1,  2,
+                      4,  5);
+        
+        rgm::mat2 res = rgm::mat2(m3);
+
+        CHECK_EQUAL(ref, res);
+    }
 }

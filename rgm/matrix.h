@@ -197,6 +197,16 @@ namespace rgm
         matrix2(const matrix<T, 2>& v)
         : matrix<T, 2>(v) {}
 
+        matrix2(const matrix<T, 3>& v)
+        {
+            data[0] = v[0][0];
+            data[1] = v[0][1];
+
+            data[2] = v[1][0];
+            data[3] = v[1][1];
+        }  
+        
+
     protected:
         using matrix<T, 2>::data;
     };
@@ -254,7 +264,7 @@ namespace rgm
 
             data[6] = v[2][0];
             data[7] = v[2][1];
-            data[8] = v[0][2];
+            data[8] = v[2][2];
         }  
         
     protected:
