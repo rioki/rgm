@@ -311,12 +311,6 @@ namespace rgm
     }
 
     template <typename T, unsigned int N, typename S>
-    vector<T, N> operator * (S s, const vector<T, N>& v)
-    {
-        return v * s;
-    }
-
-    template <typename T, unsigned int N, typename S>
     vector<T, N> operator / (const vector<T, N>& v, S s)
     {
         vector<T, N> r;

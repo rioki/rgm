@@ -60,7 +60,7 @@ namespace rgm
         vector3<T> vb = vector3<T>(b);
 
         T          w = wa * wb - dot(va, vb);
-        vector3<T> v = wa * vb + wb * va + cross(va, vb);
+        vector3<T> v = vb * wa + va * wb + cross(va, vb);
 
         return quaterion<T>(v, w);
     }
